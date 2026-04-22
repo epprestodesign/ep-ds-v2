@@ -1,16 +1,28 @@
 import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
 import Icon from '@mui/material/Icon'
 import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import OutlinedInput from '@mui/material/OutlinedInput'
 import Toolbar from '@mui/material/Toolbar'
-import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
+
+// Figma design tokens for the top bar
+const TOPBAR_BORDER = '#D5D7DF'
+const TITLE_COLOR = '#2A2D33'
+const USER_COLOR = '#8B919F'
 
 interface TopBarProps {
   pageTitle?: string
+  userName?: string
   drawerWidth: number
 }
 
-export default function TopBar({ pageTitle = 'Dashboard', drawerWidth }: TopBarProps) {
+export default function TopBar({
+  pageTitle = 'Dashboard',
+  userName,
+  drawerWidth,
+}: TopBarProps) {
   return (
     <AppBar
       position="fixed"
@@ -18,26 +30,60 @@ export default function TopBar({ pageTitle = 'Dashboard', drawerWidth }: TopBarP
       sx={{
         width: `calc(100% - ${drawerWidth}px)`,
         ml: `${drawerWidth}px`,
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-        bgcolor: 'background.paper',
-        color: 'text.primary',
+        bgcolor: '#FFFFFF',
+        borderBottom: `1px solid ${TOPBAR_BORDER}`,
+        color: TITLE_COLOR,
       }}
     >
-      <Toolbar>
-        <Typography variant="h6" sx={{ flex: 1, fontWeight: 600 }}>
-          {pageTitle}
-        </Typography>
-        <Tooltip title="Notifications">
-          <IconButton size="small" color="inherit">
-            <Icon fontSize="small">notifications_none</Icon>
+      <Toolbar sx={{ px: 3, minHeight: '64px !important', gap: 2 }}>
+        {/* Page title + dropdown */}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flex: 1 }}>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 700, fontSize: 18, color: TITLE_COLOR, lineHeight: 1 }}
+          >
+            {pageTitle}
+          </Typography>
+          <Icon sx={{ color: TITLE_COLOR, fontSize: 20, mt: '1px' }}>keyboard_arrow_down</Icon>
+        </Box>
+
+        {/* Search bar */}
+        <OutlinedInput
+          placeholder="Search"
+          size="small"
+          sx={{
+            width: 200,
+            height: 36,
+            fontSize: 13,
+            bgcolor: '#FFFFFF',
+            borderRadius: '19px',
+            '& .MuiOutlinedInput-notchedOutline': { borderColor: TOPBAR_BORDER },
+            '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#B5BAC7' },
+          }}
+          startAdornment={
+            <InputAdornment position="start">
+              <Icon sx={{ fontSize: 16, color: USER_COLOR }}>search</Icon>
+            </InputAdornment>
+          }
+        />
+
+        {/* User name + dropdown */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0.5,
+            cursor: 'pointer',
+            '&:hover': { opacity: 0.8 },
+          }}
+        >
+          <Typography variant="body2" sx={{ color: USER_COLOR, fontSize: 15, fontWeight: 400 }}>
+            {userName ?? 'Mike Addesa'}
+          </Typography>
+          <IconButton size="small" sx={{ p: 0.25 }}>
+            <Icon sx={{ fontSize: 18, color: USER_COLOR }}>keyboard_arrow_down</Icon>
           </IconButton>
-        </Tooltip>
-        <Tooltip title="Settings">
-          <IconButton size="small" color="inherit" sx={{ ml: 0.5 }}>
-            <Icon fontSize="small">settings</Icon>
-          </IconButton>
-        </Tooltip>
+        </Box>
       </Toolbar>
     </AppBar>
   )

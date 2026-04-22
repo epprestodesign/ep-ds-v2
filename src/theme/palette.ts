@@ -2,24 +2,24 @@ import type { PaletteOptions } from '@mui/material/styles'
 
 const palette: PaletteOptions = {
   primary: {
-    main: '#1A1A2E',
-    light: '#16213E',
-    dark: '#0F3460',
+    main: '#00ADB3',
+    light: '#33BEC3',
+    dark: '#007A80',
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#E94560',
-    light: '#FF6B6B',
-    dark: '#C62A47',
+    main: '#2962FF',
+    light: '#5581FF',
+    dark: '#1E46B8',
     contrastText: '#FFFFFF',
   },
   background: {
-    default: '#F8F9FA',
+    default: '#F9F9FA',
     paper: '#FFFFFF',
   },
   text: {
-    primary: '#1A1A2E',
-    secondary: '#6C757D',
+    primary: '#2A2D33',
+    secondary: '#8B919F',
   },
   error: { main: '#DC3545' },
   warning: { main: '#FFC107' },

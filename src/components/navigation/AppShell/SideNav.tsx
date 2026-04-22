@@ -1,4 +1,3 @@
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
@@ -8,8 +7,14 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
 import type { NavItem, UserProfile } from './AppShell'
+
+// Figma design tokens for the sidebar shell
+const SIDEBAR_BG = '#01123D'
+const SIDEBAR_TEXT_INACTIVE = '#B5BAC7'
+const SIDEBAR_BORDER = '#D5D7DF'
+const SIDEBAR_FOOTER_BORDER = '#B5BAC7'
+const ACTIVE_BG = '#00ADB3'
 
 interface SideNavProps {
   navItems: NavItem[]
@@ -26,8 +31,6 @@ export default function SideNav({
   user,
   drawerWidth,
 }: SideNavProps) {
-  const theme = useTheme()
-
   return (
     <Drawer
       variant="permanent"
@@ -39,44 +42,48 @@ export default function SideNav({
           boxSizing: 'border-box',
           display: 'flex',
           flexDirection: 'column',
+          bgcolor: SIDEBAR_BG,
+          borderRight: 'none',
         },
       }}
     >
-      {/* Logo strip */}
+      {/* Logo area — white panel */}
       <Box
         sx={{
-          background: theme.brand.gradient,
+          bgcolor: '#FFFFFF',
           px: 2,
-          py: 2.5,
+          py: 1.5,
           display: 'flex',
           alignItems: 'center',
           gap: 1,
           minHeight: 64,
+          flexShrink: 0,
         }}
       >
+        {/* Teal diamond logo mark */}
         <Box
           sx={{
-            width: 32,
-            height: 32,
-            borderRadius: 1,
-            bgcolor: 'rgba(255,255,255,0.2)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            width: 28,
+            height: 28,
+            bgcolor: '#00ADB3',
+            borderRadius: '4px',
+            transform: 'rotate(45deg)',
+            flexShrink: 0,
           }}
-        >
-          <Icon sx={{ color: '#fff', fontSize: 20 }}>bolt</Icon>
-        </Box>
+        />
         <Typography
           variant="subtitle1"
-          sx={{ color: '#fff', fontWeight: 700, letterSpacing: 0.5 }}
+          sx={{ fontWeight: 700, color: '#093E60', letterSpacing: 0.3 }}
         >
           EventPipe
         </Typography>
       </Box>
 
+      {/* Separator */}
+      <Divider sx={{ borderColor: SIDEBAR_BORDER }} />
+
       {/* Nav items */}
-      <List sx={{ flex: 1, px: 1, py: 1 }}>
+      <List sx={{ flex: 1, px: 1.5, py: 1.5, overflowY: 'auto' }}>
         {navItems.map((item) => {
           const isActive = item.id === activeItemId
           return (
@@ -85,54 +92,78 @@ export default function SideNav({
               selected={isActive}
               onClick={() => onNavChange?.(item)}
               sx={{
-                borderRadius: 2,
-                mb: 0.5,
+                borderRadius: 1.5,
+                mb: 0.25,
+                py: 1,
+                color: isActive ? '#FFFFFF' : SIDEBAR_TEXT_INACTIVE,
                 '&.Mui-selected': {
-                  bgcolor: 'primary.main',
-                  color: 'primary.contrastText',
-                  '&:hover': { bgcolor: 'primary.dark' },
-                  '& .MuiListItemIcon-root': { color: 'primary.contrastText' },
+                  bgcolor: ACTIVE_BG,
+                  '&:hover': { bgcolor: '#009AA0' },
+                },
+                '&:hover': {
+                  bgcolor: 'rgba(255,255,255,0.07)',
                 },
               }}
             >
               {item.icon && (
-                <ListItemIcon sx={{ minWidth: 36, color: isActive ? 'primary.contrastText' : 'text.secondary' }}>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 32,
+                    color: isActive ? '#FFFFFF' : SIDEBAR_TEXT_INACTIVE,
+                  }}
+                >
                   <Icon fontSize="small">{item.icon}</Icon>
                 </ListItemIcon>
               )}
               <ListItemText
                 primary={item.label}
-                slotProps={{ primary: { variant: 'body2', sx: { fontWeight: isActive ? 600 : 400 } } }}
+                slotProps={{
+                  primary: {
+                    sx: {
+                      fontSize: 15,
+                      fontWeight: isActive ? 600 : 400,
+                      color: 'inherit',
+                    },
+                  },
+                }}
               />
             </ListItemButton>
           )
         })}
       </List>
 
-      {/* User profile */}
-      {user && (
-        <>
-          <Divider />
-          <Box sx={{ px: 2, py: 1.5, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Avatar
-              src={user.avatarUrl}
-              sx={{ width: 36, height: 36, bgcolor: 'secondary.main', fontSize: 14 }}
-            >
-              {!user.avatarUrl && user.name.charAt(0).toUpperCase()}
-            </Avatar>
-            <Box sx={{ overflow: 'hidden' }}>
-              <Typography variant="body2" sx={{ fontWeight: 600 }} noWrap>
-                {user.name}
-              </Typography>
-              {user.role && (
-                <Typography variant="caption" color="text.secondary" noWrap>
-                  {user.role}
-                </Typography>
-              )}
-            </Box>
-          </Box>
-        </>
-      )}
+      {/* Company Settings / User footer */}
+      <Box
+        sx={{
+          bgcolor: 'rgba(255,255,255,0.06)',
+          borderTop: `1px solid ${SIDEBAR_FOOTER_BORDER}`,
+          px: 2,
+          py: 1.5,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1.5,
+          flexShrink: 0,
+          cursor: 'pointer',
+          '&:hover': { bgcolor: 'rgba(255,255,255,0.10)' },
+        }}
+      >
+        <Icon sx={{ color: SIDEBAR_TEXT_INACTIVE, fontSize: 20 }}>settings</Icon>
+        <Box sx={{ flex: 1, overflow: 'hidden' }}>
+          <Typography
+            variant="body2"
+            sx={{ color: SIDEBAR_TEXT_INACTIVE, fontSize: 15 }}
+            noWrap
+          >
+            {user?.name ?? 'Company Settings'}
+          </Typography>
+          {user?.role && (
+            <Typography variant="caption" sx={{ color: SIDEBAR_TEXT_INACTIVE, opacity: 0.7 }} noWrap>
+              {user.role}
+            </Typography>
+          )}
+        </Box>
+        <Icon sx={{ color: SIDEBAR_TEXT_INACTIVE, fontSize: 16 }}>keyboard_arrow_down</Icon>
+      </Box>
     </Drawer>
   )
 }

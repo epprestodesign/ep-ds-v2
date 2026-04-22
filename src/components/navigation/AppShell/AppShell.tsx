@@ -43,14 +43,18 @@ export default function AppShell({
         user={user}
         drawerWidth={drawerWidth}
       />
-      <TopBar pageTitle={pageTitle} drawerWidth={drawerWidth} />
+      <TopBar
+        pageTitle={pageTitle}
+        userName={user?.name}
+        drawerWidth={drawerWidth}
+      />
       <Box
         component="main"
         sx={{
           flex: 1,
           mt: '64px',
           p: 3,
-          bgcolor: 'background.default',
+          bgcolor: '#F9F9FA',
           minHeight: 'calc(100vh - 64px)',
         }}
       >
