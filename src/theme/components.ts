@@ -51,8 +51,17 @@ const components: Components<Theme> = {
   MuiDrawer: {
     styleOverrides: {
       paper: {
+        borderRadius: 0,
         borderRight: 'none',
-        boxShadow: '2px 0 8px rgba(0,0,0,0.08)',
+        boxShadow: 'none',
+      },
+    },
+  },
+  MuiAppBar: {
+    styleOverrides: {
+      root: {
+        borderRadius: 0,
+        boxShadow: 'none',
       },
     },
   },
