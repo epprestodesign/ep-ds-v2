@@ -63,7 +63,7 @@ export default function SideNav({
           component="img"
           src={epLogo}
           alt="EventPipe"
-          sx={{ height: 22, width: 'auto', display: 'block' }}
+          sx={{ height: 22, width: 'auto', minWidth: 140, display: 'block' }}
         />
       </Box>
 
