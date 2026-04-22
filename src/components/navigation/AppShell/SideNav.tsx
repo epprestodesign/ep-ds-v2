@@ -57,6 +57,7 @@ export default function SideNav({
           height: 64,
           flexShrink: 0,
           borderBottom: `1px solid ${SIDEBAR_BORDER}`,
+          borderRight: `1px solid ${SIDEBAR_BORDER}`,
         }}
       >
         <Box

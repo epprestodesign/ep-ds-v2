@@ -1,6 +1,5 @@
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
 import Icon from '@mui/material/Icon'
 import IconButton from '@mui/material/IconButton'
 import InputAdornment from '@mui/material/InputAdornment'
@@ -36,10 +35,7 @@ export default function TopBar({
         color: TITLE_COLOR,
       }}
     >
-      <Toolbar sx={{ pl: 0, pr: 3, minHeight: '64px !important', gap: 2 }}>
-        {/* Vertical divider separating logo panel from top bar content */}
-        <Divider orientation="vertical" flexItem sx={{ borderColor: TOPBAR_BORDER, mr: 1 }} />
-
+      <Toolbar sx={{ px: 3, minHeight: '64px !important', gap: 2 }}>
         {/* Page title + dropdown */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flex: 1 }}>
           <Typography
