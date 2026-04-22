@@ -47,7 +47,7 @@ const defaultUser = {
 
 const ContentPlaceholder = ({ title }: { title: string }) => (
   <Box>
-    <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, color: '#2A2D33' }}>
+    <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, color: '#2A2D33' }}>
       {title}
     </Typography>
     <Box

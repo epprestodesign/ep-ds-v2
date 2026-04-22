@@ -3,8 +3,8 @@ const FONT_BODY = "'Lato', 'Segoe UI', Arial, sans-serif"
 
 const typography = {
   fontFamily: FONT_BODY,
-  h1: { fontFamily: FONT_HEADING, fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.2 },
-  h2: { fontFamily: FONT_HEADING, fontSize: '2rem', fontWeight: 700, lineHeight: 1.3 },
+  h1: { fontFamily: FONT_HEADING, fontSize: '2.5rem', fontWeight: 600, lineHeight: 1.2 },
+  h2: { fontFamily: FONT_HEADING, fontSize: '2rem', fontWeight: 600, lineHeight: 1.3 },
   h3: { fontFamily: FONT_HEADING, fontSize: '1.75rem', fontWeight: 600, lineHeight: 1.3 },
   h4: { fontFamily: FONT_HEADING, fontSize: '1.5rem', fontWeight: 600, lineHeight: 1.4 },
   h5: { fontFamily: FONT_HEADING, fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.4 },

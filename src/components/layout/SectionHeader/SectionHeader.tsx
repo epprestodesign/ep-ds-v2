@@ -22,7 +22,7 @@ export default function SectionHeader({
           variant="h6"
           sx={{
             color: titleColor,
-            fontWeight: 700,
+            fontWeight: 600,
             whiteSpace: 'nowrap',
             lineHeight: 1,
           }}
