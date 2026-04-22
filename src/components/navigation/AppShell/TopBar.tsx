@@ -53,7 +53,7 @@ export default function TopBar({
           size="small"
           sx={{
             width: 200,
-            height: 36,
+            height: 40,
             fontSize: 13,
             bgcolor: '#FFFFFF',
             borderRadius: '19px',
