@@ -36,7 +36,7 @@ export default function TopBar({
         color: TITLE_COLOR,
       }}
     >
-      <Toolbar sx={{ px: 3, minHeight: '64px !important', gap: 2 }}>
+      <Toolbar sx={{ pl: 0, pr: 3, minHeight: '64px !important', gap: 2 }}>
         {/* Vertical divider separating logo panel from top bar content */}
         <Divider orientation="vertical" flexItem sx={{ borderColor: TOPBAR_BORDER, mr: 1 }} />
 
