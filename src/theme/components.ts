@@ -11,6 +11,9 @@ const components: Components<Theme> = {
         paddingInline: 24,
         paddingBlock: 10,
       },
+      contained: { textTransform: 'uppercase' },
+      outlined: { textTransform: 'uppercase' },
+      text: { textTransform: 'none' },
     },
   },
   MuiOutlinedInput: {
