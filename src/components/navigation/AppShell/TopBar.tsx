@@ -40,7 +40,7 @@ export default function TopBar({
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flex: 1 }}>
           <Typography
             variant="h6"
-            sx={{ fontWeight: 700, fontSize: 18, color: TITLE_COLOR, lineHeight: 1 }}
+            sx={{ fontWeight: 600, fontSize: 18, color: TITLE_COLOR, lineHeight: 1 }}
           >
             {pageTitle}
           </Typography>
