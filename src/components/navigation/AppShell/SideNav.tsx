@@ -71,7 +71,7 @@ export default function SideNav({
       <Divider sx={{ borderColor: SIDEBAR_BORDER }} />
 
       {/* Nav items */}
-      <List sx={{ flex: 1, px: 1.5, py: 1.5, overflowY: 'auto' }}>
+      <List sx={{ flex: 1, px: 0, py: 1, overflowY: 'auto' }}>
         {navItems.map((item) => {
           const isActive = item.id === activeItemId
           return (
@@ -82,6 +82,7 @@ export default function SideNav({
               sx={{
                 borderRadius: 1.5,
                 mb: 0.25,
+                px: 2,
                 py: 1,
                 color: isActive ? '#FFFFFF' : SIDEBAR_TEXT_INACTIVE,
                 '&.Mui-selected': {
