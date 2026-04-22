@@ -108,7 +108,8 @@ export default function SideNav({
                 slotProps={{
                   primary: {
                     sx: {
-                      fontSize: 15,
+                      fontFamily: "'Poppins', 'Segoe UI', Arial, sans-serif",
+                      fontSize: 16,
                       fontWeight: isActive ? 600 : 400,
                       color: 'inherit',
                     },
