@@ -7,9 +7,16 @@ const components: Components<Theme> = {
     },
     styleOverrides: {
       root: {
-        borderRadius: 8,
+        borderRadius: 4,
         paddingInline: 24,
         paddingBlock: 10,
+      },
+    },
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        borderRadius: 4,
       },
     },
   },
