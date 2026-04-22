@@ -7,6 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Typography from '@mui/material/Typography'
+import epLogo from '../../../assets/ep-logo.svg'
 import type { NavItem, UserProfile } from './AppShell'
 
 // Figma design tokens for the sidebar shell
@@ -52,31 +53,18 @@ export default function SideNav({
         sx={{
           bgcolor: '#FFFFFF',
           px: 2,
-          py: 1.5,
           display: 'flex',
           alignItems: 'center',
-          gap: 1,
           minHeight: 64,
           flexShrink: 0,
         }}
       >
-        {/* Teal diamond logo mark */}
         <Box
-          sx={{
-            width: 28,
-            height: 28,
-            bgcolor: '#00ADB3',
-            borderRadius: '4px',
-            transform: 'rotate(45deg)',
-            flexShrink: 0,
-          }}
+          component="img"
+          src={epLogo}
+          alt="EventPipe"
+          sx={{ height: 22, width: 'auto', display: 'block' }}
         />
-        <Typography
-          variant="subtitle1"
-          sx={{ fontWeight: 700, color: '#093E60', letterSpacing: 0.3 }}
-        >
-          EventPipe
-        </Typography>
       </Box>
 
       {/* Separator */}
