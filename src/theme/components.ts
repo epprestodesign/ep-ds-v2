@@ -1,0 +1,46 @@
+import type { Components, Theme } from '@mui/material/styles'
+
+const components: Components<Theme> = {
+  MuiButton: {
+    defaultProps: {
+      disableElevation: true,
+    },
+    styleOverrides: {
+      root: {
+        borderRadius: 8,
+        paddingInline: 24,
+        paddingBlock: 10,
+      },
+    },
+  },
+  MuiCard: {
+    styleOverrides: {
+      root: {
+        borderRadius: 12,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+      },
+    },
+  },
+  MuiTextField: {
+    defaultProps: {
+      variant: 'outlined',
+      size: 'small',
+    },
+  },
+  MuiChip: {
+    styleOverrides: {
+      root: {
+        borderRadius: 6,
+      },
+    },
+  },
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        borderRadius: 12,
+      },
+    },
+  },
+}
+
+export default components
