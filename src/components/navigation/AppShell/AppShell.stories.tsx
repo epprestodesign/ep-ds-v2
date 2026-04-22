@@ -16,7 +16,7 @@ const meta: Meta<typeof AppShell> = {
       control: 'select',
       options: ['users', 'events', 'reports', 'hotels', 'hotel-brands', 'amenities', 'room-types', 'venues', 'event-companies', 'companies', 'requests', 'inventory', 'admin-tools', 'api'],
     },
-    drawerWidth: { control: { type: 'range', min: 180, max: 320, step: 10 } },
+    drawerWidth: { control: { type: 'range', min: 240, max: 320, step: 10 } },
   },
 }
 export default meta

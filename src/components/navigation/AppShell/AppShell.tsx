@@ -34,6 +34,7 @@ export default function AppShell({
   children,
   drawerWidth = 240,
 }: AppShellProps) {
+  const width = Math.max(240, drawerWidth)
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       <SideNav
@@ -41,12 +42,12 @@ export default function AppShell({
         activeItemId={activeItemId}
         onNavChange={onNavChange}
         user={user}
-        drawerWidth={drawerWidth}
+        drawerWidth={width}
       />
       <TopBar
         pageTitle={pageTitle}
         userName={user?.name}
-        drawerWidth={drawerWidth}
+        drawerWidth={width}
       />
       <Box
         component="main"
