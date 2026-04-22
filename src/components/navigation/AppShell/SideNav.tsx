@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import Icon from '@mui/material/Icon'
 import List from '@mui/material/List'
@@ -48,15 +47,16 @@ export default function SideNav({
         },
       }}
     >
-      {/* Logo area — white panel */}
+      {/* Logo area — white panel, borderBottom keeps it flush with TopBar */}
       <Box
         sx={{
           bgcolor: '#FFFFFF',
           px: 2,
           display: 'flex',
           alignItems: 'center',
-          minHeight: 64,
+          height: 64,
           flexShrink: 0,
+          borderBottom: `1px solid ${SIDEBAR_BORDER}`,
         }}
       >
         <Box
@@ -66,9 +66,6 @@ export default function SideNav({
           sx={{ width: 140, height: 'auto', display: 'block' }}
         />
       </Box>
-
-      {/* Separator */}
-      <Divider sx={{ borderColor: SIDEBAR_BORDER }} />
 
       {/* Nav items */}
       <List sx={{ flex: 1, px: 0, py: 1, overflowY: 'auto' }}>
