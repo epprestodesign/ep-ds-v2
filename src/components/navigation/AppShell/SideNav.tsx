@@ -78,17 +78,19 @@ export default function SideNav({
               selected={isActive}
               onClick={() => onNavChange?.(item)}
               sx={{
-                borderRadius: 1.5,
-                mb: 0.25,
-                px: 2,
-                py: 1,
+                borderRadius: 0,
+                mb: 0,
+                pl: isActive ? 1.75 : 2,
+                pr: 2,
+                py: 1.25,
                 color: isActive ? '#FFFFFF' : SIDEBAR_TEXT_INACTIVE,
+                borderLeft: isActive ? `3px solid ${ACTIVE_BG}` : '3px solid transparent',
                 '&.Mui-selected': {
-                  bgcolor: ACTIVE_BG,
-                  '&:hover': { bgcolor: '#009AA0' },
+                  bgcolor: 'rgba(255,255,255,0.06)',
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.09)' },
                 },
                 '&:hover': {
-                  bgcolor: 'rgba(255,255,255,0.07)',
+                  bgcolor: 'rgba(255,255,255,0.05)',
                 },
               }}
             >
