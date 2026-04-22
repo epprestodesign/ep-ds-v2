@@ -41,6 +41,14 @@ const components: Components<Theme> = {
       },
     },
   },
+  MuiDrawer: {
+    styleOverrides: {
+      paper: {
+        borderRight: 'none',
+        boxShadow: '2px 0 8px rgba(0,0,0,0.08)',
+      },
+    },
+  },
 }
 
 export default components
